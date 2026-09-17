@@ -99,6 +99,32 @@ Formatting policy is identical everywhere; only the language coverage differs.
 set is. Node and pnpm are declared together so no repository pins a package manager independently of
 its runtime.
 
+### Language tooling map
+
+One rule set per language, each with exactly one authoritative definition:
+
+| Concern | Tool | Authoritative definition | How it is enforced |
+| --- | --- | --- | --- |
+| Shell formatting | shfmt | `.editorconfig` (indent, EOL, final newline, max line length) | Byte-identical file; the checker also runs `sh -n` or `bash -n` on every tracked script |
+| Markdown | MarkdownLint | `.markdownlint.yaml` | Byte-identical file |
+| JS, TS, Astro | Prettier | `.prettierrc.json`, `.prettierignore` | Byte-identical files, required for the `application` tier |
+| JS, TS, Astro | ESLint | `eslint.config.mjs` | Byte-identical file; a repository that keeps a variant is warned, not failed |
+| Python | Ruff (lint and format) | `ruff.toml` | Byte-identical file, required for the `model` tier |
+| Node runtime and package manager | mise | `mise.toml` | `[tools]` required, with `node` plus the package manager that owns the tracked lock file |
+| Commit and pull request text | Conventional Commits | This file | Followed by convention; not machine-checked |
+
+Tool versions stay in each repository's `mise.toml` on purpose: forcing one Node
+version on every application would change build behaviour for repositories that
+deliberately pin another, which this standard forbids. The tool *set* is
+unified, and the version values live in one file with one shape so they are
+trivial to compare.
+
+Likewise, CI is a byte-identical workflow rather than a reusable-workflow
+reference: the canon repository is private, and GitHub does not allow a public
+repository to call a private repository's reusable workflow. The workflow holds
+no policy of its own, so there is still exactly one implementation of every
+rule, and no cross-repository reference that can drift.
+
 ## Conventions
 
 Naming, comments, and text follow one rule set so that a reader moving between repositories does not
