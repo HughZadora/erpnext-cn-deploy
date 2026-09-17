@@ -22,7 +22,7 @@ set -eu
 #   model        required when project.yaml declares type model
 #   optional     if present, must be byte-identical to canon
 #   advisory     if present and different, warning only
-#@ scripts/repository-check all scripts/repository-check fd23ab873d30ab2a66415cb7276b4ef679cf651d0262b1077612133e9c61ce3b
+#@ scripts/repository-check all scripts/repository-check 13a79caac62f1e761005bb0ce8d19c09a597fffe290e5d9a55f8375e244b46d3
 #@ .editorconfig all .editorconfig bc8c68c97ac4826849466c700b1a009a50449e1db3c7027553b131c9df2ae250
 #@ .gitattributes all .gitattributes d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c
 #@ .markdownlint.yaml all .markdownlint.yaml 00f539730b6ac4bf96c1aa9384ebaaedae188a9f2b4d4362f643594bfc79940b
@@ -180,12 +180,18 @@ done < "$TMP/manifest"
 #|/build/
 #|/coverage/
 #|/node_modules/
+#|/.venv/
+#|/venv/
 #|.env
 #|.env.*
 #|!.env.example
 #|__pycache__/
 #|*.py[cod]
 # <<< canon baseline
+
+#|# Local template maintenance state
+#|/template-test-target/
+#|/missing-parent/
 expected_block=$(sed -n '/^# >>> canon baseline$/,/^# <<< canon baseline$/p' "$SCRIPT_PATH" | sed 's/^#|//')
 if [ ! -f .gitignore ]; then
   fail_one 'missing required file .gitignore'

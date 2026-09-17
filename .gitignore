@@ -6,6 +6,8 @@
 /build/
 /coverage/
 /node_modules/
+/.venv/
+/venv/
 .env
 .env.*
 !.env.example
