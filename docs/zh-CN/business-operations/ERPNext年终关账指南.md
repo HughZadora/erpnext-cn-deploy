@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext年终关账指南.md -->
 # ERPNext 年终关账指南
 
 > 每年 12 月 31 日关账。这不是"可做可不做"的事——不关账，下一年的报表数据会和上一年混在一起。

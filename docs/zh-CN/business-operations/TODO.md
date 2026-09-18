@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/TODO.md -->
 从 0 开始建站文档
 1. 目标定义
 这个项目不是普通静态个人站，而是一个“个人经营延伸型网站系统”，前台用于展示你的方向、项目与方法论，后台用于长期内容管理，数据库作为全部内容的唯一来源。

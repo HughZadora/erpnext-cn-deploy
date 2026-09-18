@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext运维进阶与本地化指南.md -->
 # ERPNext 运维进阶与本地化指南
 
 > 适用读者：已经成功启动 Demo 环境，现在需要日常维护、中国本地化、性能调优的人

@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext部署指南_从零到生产.md -->
 # ERPNext 部署指南 — 从零到生产
 
 > 适用读者：只会 Excel 基础公式的人，不需要任何编程知识
