@@ -141,7 +141,11 @@ relearn anything.
 - Commit messages follow Conventional Commits: `type(scope): summary`, with `type` in `feat`, `fix`,
   `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
 - Pull request titles follow the same form; bodies state problem, change, and evidence.
-- Line length is 100 for Markdown, code, and configuration.
+- Line length is 100 for Markdown prose, source code, and configuration. A
+  line whose length comes from a single unbreakable token — a URL, digest,
+  file path, or shell fragment — is exempt: wrapping or truncating it would
+  change the content. The shared `.yamllint.yaml` encodes the same exemption
+  through `allow-non-breakable-words`.
 - Indentation is two spaces, four for Python, tabs for `Makefile`.
 
 ## Language policy

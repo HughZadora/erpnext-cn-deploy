@@ -25,9 +25,13 @@ ignore: |
   **/logs/**
 
 rules:
-  # Declared by STANDARD.md and .editorconfig max_line_length.
+  # Declared by STANDARD.md and .editorconfig max_line_length. A line whose
+  # length comes from one unbreakable token (a URL, digest, file path, or shell
+  # fragment) is allowed: wrapping or truncating it would change the content.
   line-length:
     max: 100
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
 
   # Declared by STANDARD.md: one space before an inline comment.
   comments:

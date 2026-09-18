@@ -22,13 +22,13 @@ set -eu
 #   model        required when project.yaml declares type model
 #   optional     if present, must be byte-identical to canon
 #   advisory     if present and different, warning only
-#@ scripts/repository-check all scripts/repository-check 1139f1a03e900651882c5b6b52189ead3a64c959056f0c5e80cbfb31867d2563
+#@ scripts/repository-check all scripts/repository-check 8346ed269dcbeb0d4355d47b8f87d3e535acbac8a9a4b4d657180501d29614c0
 #@ .editorconfig all .editorconfig bc8c68c97ac4826849466c700b1a009a50449e1db3c7027553b131c9df2ae250
 #@ .gitattributes all .gitattributes d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c
 #@ .markdownlint.yaml all .markdownlint.yaml 00f539730b6ac4bf96c1aa9384ebaaedae188a9f2b4d4362f643594bfc79940b
 #@ .github/dependabot.yml all .github/dependabot.yml 9804ed1afdf6b83d6284bf86e24804121fedbd19000ac33dd332960618d00cb7
-#@ .yamllint.yaml all .yamllint.yaml b7b1fd3c204d7687217eb08f501f558f13f581e0f944267a5f557d8970afa07a
-#@ STANDARD.md all STANDARD.md 2f4fced031d101acfce807af5059cfbbc38833e142577611c464fabec9e584c0
+#@ .yamllint.yaml all .yamllint.yaml 0a904c23ec54f71d40071fca59eaa6aeaf91949b3928dbf3e7357717d49ed700
+#@ STANDARD.md all STANDARD.md 02ea152316a787fa96d9ce825244a8aa867127f9187846eeff139a77a33cf9b5
 #@ .github/workflows/repository-baseline.yml all .github/workflows/repository-baseline.yml bb29eeac4b260e2b4a094323b3e9659158ce95765868a8e93628c38cea96389b
 #@ .prettierrc.json application .prettierrc.json d1dc28d81d35d108645c8d83fbf2bb4a9a840265bce8fdb01100e1fe62abeaaf
 #@ .prettierignore application .prettierignore e5d4f6658f2cca9634b43a9f695a43cbc66c38e73dbb509e4c3f601889382f98
@@ -189,6 +189,10 @@ done < "$TMP/manifest"
 #|__pycache__/
 #|*.py[cod]
 # <<< canon baseline
+
+#|# Local template maintenance state
+#|/template-test-target/
+#|/missing-parent/
 
 #|# Local template maintenance state
 #|/template-test-target/
