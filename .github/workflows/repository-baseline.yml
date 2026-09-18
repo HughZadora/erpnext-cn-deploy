@@ -3,18 +3,22 @@ name: Repository Baseline
 on:
   pull_request:
   push:
-    branches: [main]
+    # Cover both default-branch names used across these repositories, so a
+    # repository whose default branch is master still runs the baseline after
+    # merge.
+    branches: [main, master]
   # Kept so a repository can call this workflow locally from another workflow.
   # Cross-repository reuse is not used: the canon repository is private, and a
   # public repository cannot call a private repository's reusable workflow.
   workflow_call:
 
+# Deliberately no concurrency group. This workflow is triggered directly by
+# branch pushes and pull requests and is also called by the pull request
+# workflow, and the runs share github.ref. A cancel-in-progress group would
+# therefore cancel this workflow's own run, which the pull request then reports
+# as a failed check.
 permissions:
   contents: read
-
-concurrency:
-  group: repository-baseline-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   repository-baseline:

@@ -4,7 +4,7 @@ set -euo pipefail
 echo "=== Container Status ==="
 docker ps --format 'table {{.Names}}\t{{.Status}}' 2>/dev/null
 
-echo "" 
+echo ""
 echo "=== Disk Usage ==="
 df -h / 2>/dev/null | tail -1
 
