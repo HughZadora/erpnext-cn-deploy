@@ -1,3 +1,20 @@
+# >>> canon baseline
+.DS_Store
+.pi/
+/artifacts/
+/dist/
+/build/
+/coverage/
+/node_modules/
+/.venv/
+/venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+# <<< canon baseline
+
 # OS files
 .DS_Store
 Thumbs.db

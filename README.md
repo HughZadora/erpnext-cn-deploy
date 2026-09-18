@@ -1061,3 +1061,11 @@ docker compose exec backend cat sites/erpnext.example.com/site_config.json
 | [TODO.md](docs/business-operations/TODO.md) | 待办事项和规划 |
 
 > **最后说一句**：单机生产环境的核心不是性能，而是**不出问题时能安心，出问题时能快速恢复**。备份 + 恢复演练 + 资源限制，这三件事做好，已经可以应对大部分故障。
+
+## Validation
+
+Run the repository baseline check locally:
+
+```sh
+./scripts/repository-check
+```

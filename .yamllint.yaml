@@ -1,0 +1,64 @@
+# YAML lint policy for every repository.
+#
+# This policy asserts only what STANDARD.md declares. yamllint's own defaults
+# (80 columns, two spaces before an inline comment, a required `---` document
+# start, plain-scalar colon spacing, and similar stylistic rules) are not part
+# of the standard, so they are disabled here rather than left to report
+# conformant files.
+#
+# The shared checker in scripts/repository-check remains the only proof of
+# compliance. This file keeps the YAML linter in agreement with the standard.
+extends: default
+
+# Machine-managed content, exempt for the same reason generated output is
+# exempt from the tracked-output rule: these are tool-owned records, not
+# authored lines. A lock file must never be wrapped by hand, and observed state,
+# inventory, and logs are written by tooling.
+ignore: |
+  **/pnpm-lock.yaml
+  **/package-lock.json
+  **/yarn.lock
+  **/bun.lock
+  **/bun.lockb
+  **/state/**
+  **/inventory/**
+  **/logs/**
+
+rules:
+  # Declared by STANDARD.md and .editorconfig max_line_length. A line whose
+  # length comes from one unbreakable token (a URL, digest, file path, or shell
+  # fragment) is allowed: wrapping or truncating it would change the content.
+  line-length:
+    max: 100
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+
+  # Declared by STANDARD.md: one space before an inline comment.
+  comments:
+    min-spaces-from-content: 1
+
+  # `on:` is a GitHub Actions key; the default truthy rule reads it as boolean.
+  truthy:
+    check-keys: false
+
+  # The standard does not require a document start marker.
+  document-start: disable
+
+  # Rules the standard does not declare. Disabled so this policy never reports
+  # a file for something the standard permits.
+  braces: disable
+  brackets: disable
+  colons: disable
+  commas: disable
+  comments-indentation: disable
+  empty-lines: disable
+  empty-values: disable
+  hyphens: disable
+  indentation: disable
+  octal-values: disable
+  quoted-strings: disable
+
+  # Genuine correctness or hygiene rules, kept as errors.
+  key-duplicates: enable
+  new-line-at-end-of-file: enable
+  trailing-spaces: enable

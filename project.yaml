@@ -1,0 +1,6 @@
+version: 1
+name: erpnext-cn-deploy
+type: deploy
+purpose: Deployment and operating procedures for ERPNext
+status: active
+validation: ./scripts/repository-check
