@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext求助指南_遇到问题怎么办.md -->
 # ERPNext 求助指南 — 遇到问题怎么办
 
 > 你一定会遇到报错信息。这不代表你做错了什么——这是正常的。关键是知道去哪里找答案。

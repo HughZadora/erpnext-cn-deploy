@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext首次登录与基础配置.md -->
 # ERPNext 首次登录与基础配置
 
 > 你刚装好系统，打开浏览器看到 ERPNext 登录页面。接下来每一步该做什么？这份文档陪你走完从登录到发出第一封邮件的全过程。

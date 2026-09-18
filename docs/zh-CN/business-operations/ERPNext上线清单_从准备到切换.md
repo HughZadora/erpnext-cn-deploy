@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext上线清单_从准备到切换.md -->
 # ERPNext 上线清单 — 从准备到切换
 
 > 这份文档解决一个问题：你装好了 ERPNext，里面是空的。怎么把你的公司从旧方式（Excel/手工账）**安全地、不丢数据地、业务不中断地**切换到 ERPNext。

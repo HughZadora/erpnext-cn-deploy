@@ -1,3 +1,4 @@
+<!-- non-authoritative mirror: authoritative source: business-operations/ERPNext主机与系统维护.md -->
 # ERPNext 主机与系统维护
 
 > 你的 ERPNext 跑在 Ubuntu 上（无论是物理机还是 VirtualBox 虚拟机）。Ubuntu 本身也需要定期维护，就像汽车需要换机油。不维护的结果：安全漏洞、磁盘写满、系统崩溃。
