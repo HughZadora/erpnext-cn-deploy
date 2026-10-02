@@ -25,6 +25,9 @@
       "AGENTS.md",
       "workflow.json",
       "scripts/repository-check",
+      "LICENSE",
+      "LICENSE-MIT",
+      "LICENSE-CC-BY-4.0",
       "docs/03-运维手册.md",
       "docs/04-网络代理配置.md"
     ],
