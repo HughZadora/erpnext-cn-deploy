@@ -31,20 +31,22 @@
       "docs/03-运维手册.md",
       "docs/04-网络代理配置.md"
     ],
-    "11": [
+    "12": [
       "AGENTS.md",
-      "workflow.json",
-      "README.md",
-      "Makefile",
-      "scripts/repository-check",
-      ".github/dependabot.yml",
       ".github/workflows/repository-baseline.yml",
-      "CONTRIBUTING.md",
-      "SECURITY.md",
-      ".github/ISSUE_TEMPLATE/config.yml",
-      ".github/ISSUE_TEMPLATE/bug-report.yml",
-      ".github/ISSUE_TEMPLATE/documentation.yml",
-      ".github/pull_request_template.md"
+      ".github/dependabot.yml",
+      "scripts/repository-check"
+    ],
+    "13": [
+      "AGENTS.md",
+      "README.md",
+      "workflow.json",
+      "scripts/repository-check",
+      ".github/workflows/repository-baseline.yml",
+      ".github/dependabot.yml",
+      "docs/03-运维手册.md",
+      "docs/04-网络代理配置.md",
+      "docs/business-operations/ERPNext求助指南_遇到问题怎么办.md"
     ]
   }
 }

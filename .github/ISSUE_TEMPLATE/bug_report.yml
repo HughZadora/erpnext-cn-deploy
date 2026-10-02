@@ -1,0 +1,58 @@
+name: 部署资料或仓库配置缺陷
+description: 报告本仓库文档、示例或仓库配置中可复现的问题
+title: "[缺陷] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本表单用于本仓库维护的部署资料或仓库配置问题。普通 ERPNext 使用求助请先看中文[求助指南](https://github.com/HughZadora/erpnext-cn-deploy/blob/main/docs/business-operations/ERPNext求助指南_遇到问题怎么办.md)，上游软件问题请转到相应上游项目。
+
+        **请勿提交密码、令牌、`.env`、客户资料、备份、私有域名或私有 IP。**日志、截图和配置片段必须先脱敏。安全漏洞请按 [SECURITY.md](https://github.com/HughZadora/erpnext-cn-deploy/blob/main/SECURITY.md) 私密报告。
+  - type: input
+    id: repository_path
+    attributes:
+      label: 涉及的仓库文件或功能
+      description: 例如 README、某篇 docs 文档或仓库脚本；不要填写生产主机地址。
+      placeholder: docs/04-网络代理配置.md
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: 相关版本
+      description: 请提供 ERPNext/Frappe、Docker/Compose 和操作系统版本；不需要提供私有环境地址。
+      placeholder: ERPNext v16；Docker 版本；Ubuntu/Debian 版本
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 说明仓库内容哪里不正确，以及它造成了什么影响。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 使用占位符替代真实域名、IP、账号和业务数据。
+      placeholder: |
+        1. 打开……
+        2. 按照……操作
+        3. 出现……
+    validations:
+      required: true
+  - type: textarea
+    id: expected_actual
+    attributes:
+      label: 预期结果与实际结果
+      description: 仅粘贴经过脱敏的错误信息或结果，不要附加备份、`.env` 或客户数据。
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized_evidence
+    attributes:
+      label: 脱敏后的补充信息（可选）
+      description: 提交前再次确认内容不含密码、令牌、私有地址、客户资料或其他敏感信息。
+    validations:
+      required: false

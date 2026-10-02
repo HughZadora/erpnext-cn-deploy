@@ -21,6 +21,7 @@
 - [PVE LXC 适配（重要）](#pve-lxc-适配重要)
 - [故障排查](#故障排查)
 - [FAQ](#faq)
+- [社区支持与维护](#社区支持与维护)
 
 ---
 
@@ -1069,3 +1070,12 @@ Run the repository baseline check locally:
 ```sh
 ./scripts/repository-check
 ```
+
+## 社区支持与维护
+
+- 部署资料： [部署指南](docs/01-部署指南.md)、[备份与恢复](docs/02-备份与恢复.md)、[运维手册](docs/03-运维手册.md)、[网络代理配置](docs/04-网络代理配置.md)。遇到使用问题时先看[ERPNext 求助指南](docs/business-operations/ERPNext求助指南_遇到问题怎么办.md)。
+- 发现本仓库的部署资料或仓库配置缺陷：使用[缺陷表单](https://github.com/HughZadora/erpnext-cn-deploy/issues/new?template=bug_report.yml)；提出文档或维护建议：使用[建议表单](https://github.com/HughZadora/erpnext-cn-deploy/issues/new?template=feature_request.yml)。提交前请删除密码、令牌、私有地址、客户资料和备份内容。
+- 本仓库的支持范围和上游问题分流见 [SUPPORT.md](SUPPORT.md)；仓库自身安全问题见 [SECURITY.md](SECURITY.md)，请私密报告。
+- Docker 部署上游项目：[frappe_docker Issues](https://github.com/frappe/frappe_docker/issues)。
+- 贡献规范通过 GitHub 的[社区指南页](https://github.com/HughZadora/erpnext-cn-deploy/community)查看；维护进度见[项目看板](https://github.com/users/HughZadora/projects/9)。
+- 本仓库原创代码/配置和文档的授权范围见 [LICENSE](LICENSE)。
