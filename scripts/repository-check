@@ -18,6 +18,7 @@ fail_one() { printf 'FAIL: %s\n' "$1" >&2; fail=1; }
 for f in \
   README.md \
   Makefile \
+  workflow.json \
   config/erpnext.env \
   config/common_site_config.json \
   config/site_config.json \
@@ -40,6 +41,60 @@ else
   fail_one 'git diff whitespace check failed'
 fi
 
+if command -v python3 >/dev/null 2>&1; then
+  if python3 - workflow.json <<'PY'
+import json
+import pathlib
+import sys
+
+def require(condition, message):
+    if not condition:
+        raise SystemExit(message)
+
+try:
+    with open(sys.argv[1], encoding='utf-8') as source:
+        adapter = json.load(source)
+    require(adapter.get('kind') == 'workflow.github-project-adapter', 'unexpected adapter kind')
+    require(adapter.get('schema_version') == '1.0.0', 'unexpected adapter schema version')
+    require(adapter.get('repository') == 'HughZadora/erpnext-cn-deploy', 'repository pointer mismatch')
+    require(adapter.get('project') == {
+        'number': 9,
+        'url': 'https://github.com/users/HughZadora/projects/9',
+    }, 'GitHub Project pointer mismatch')
+    require(adapter.get('root_outcome_issue') == {
+        'number': 6,
+        'url': 'https://github.com/HughZadora/erpnext-cn-deploy/issues/6',
+    }, 'root outcome pointer mismatch')
+    graph = adapter.get('work_graph', {})
+    require(graph.get('parent_child') == 'GitHub native sub-issues', 'parent/child graph must be GitHub-native')
+    require(graph.get('blocked_by') == 'GitHub native blocked-by relationships', 'dependencies must be GitHub-native')
+    require('do not mirror status or dependencies' in graph.get('source_of_truth', ''), 'adapter must not duplicate task state')
+    require(not any(key in adapter for key in ('tasks', 'status', 'frontier', 'dependencies', 'blockers')),
+            'adapter must not define a second task graph')
+    path_map = adapter.get('read_paths_by_leaf')
+    require(isinstance(path_map, dict) and '7' in path_map, 'missing tracer read-path entry')
+    for issue, paths in path_map.items():
+        require(issue.isdecimal(), f'invalid leaf issue number: {issue!r}')
+        require(isinstance(paths, list) and paths and len(paths) == len(set(paths)),
+                f'invalid read-path list for issue {issue}')
+        for raw in paths:
+            path = pathlib.PurePosixPath(raw)
+            require(raw and not path.is_absolute() and '..' not in path.parts and path.as_posix() == raw,
+                    f'invalid repository read path: {raw!r}')
+    require(set(('AGENTS.md', 'scripts/repository-check', 'workflow.json')).issubset(path_map['7']),
+            'tracer read-path entry does not match issue #7')
+except (OSError, ValueError, TypeError, AttributeError) as error:
+    raise SystemExit(f'workflow.json validation failed: {error}')
+PY
+  then
+    pass 'workflow.json adapter structure and native-state pointers'
+  else
+    fail_one 'workflow.json adapter structure'
+  fi
+else
+  fail_one 'python3 is required to validate workflow.json'
+fi
+
 for script in scripts/repository-check scripts/backup.sh scripts/monitor.sh; do
   [ -f "$script" ] || continue
   if sh -n "$script"; then
@@ -56,7 +111,7 @@ else
 fi
 
 if command -v python3 >/dev/null 2>&1; then
-  for json in config/common_site_config.json config/site_config.json config/docker-daemon.json; do
+  for json in config/common_site_config.json config/site_config.json config/docker-daemon.json workflow.json; do
     [ -f "$json" ] || continue
     if python3 -m json.tool "$json" >/dev/null; then
       pass "$json JSON syntax"

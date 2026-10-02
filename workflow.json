@@ -1,0 +1,25 @@
+{
+  "kind": "workflow.github-project-adapter",
+  "schema_version": "1.0.0",
+  "repository": "HughZadora/erpnext-cn-deploy",
+  "project": {
+    "number": 9,
+    "url": "https://github.com/users/HughZadora/projects/9"
+  },
+  "root_outcome_issue": {
+    "number": 6,
+    "url": "https://github.com/HughZadora/erpnext-cn-deploy/issues/6"
+  },
+  "work_graph": {
+    "parent_child": "GitHub native sub-issues",
+    "blocked_by": "GitHub native blocked-by relationships",
+    "source_of_truth": "GitHub issue relationships; do not mirror status or dependencies here."
+  },
+  "read_paths_by_leaf": {
+    "7": [
+      "AGENTS.md",
+      "scripts/repository-check",
+      "workflow.json"
+    ]
+  }
+}
