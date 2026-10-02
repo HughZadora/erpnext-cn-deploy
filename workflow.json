@@ -20,6 +20,28 @@
       "AGENTS.md",
       "scripts/repository-check",
       "workflow.json"
+    ],
+    "10": [
+      "AGENTS.md",
+      "workflow.json",
+      "scripts/repository-check",
+      "docs/03-运维手册.md",
+      "docs/04-网络代理配置.md"
+    ],
+    "11": [
+      "AGENTS.md",
+      "workflow.json",
+      "README.md",
+      "Makefile",
+      "scripts/repository-check",
+      ".github/dependabot.yml",
+      ".github/workflows/repository-baseline.yml",
+      "CONTRIBUTING.md",
+      "SECURITY.md",
+      ".github/ISSUE_TEMPLATE/config.yml",
+      ".github/ISSUE_TEMPLATE/bug-report.yml",
+      ".github/ISSUE_TEMPLATE/documentation.yml",
+      ".github/pull_request_template.md"
     ]
   }
 }

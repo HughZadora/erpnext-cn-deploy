@@ -1,0 +1,13 @@
+本仓库原创内容按以下范围授权；文件中单独注明的条款优先适用于该文件。
+
+- 本仓库原创代码与配置采用 MIT License，完整文本见 [LICENSE-MIT](LICENSE-MIT)。版权归属：Copyright (c) 2026 HughZadora。
+- 本仓库原创文档内容采用 Creative Commons Attribution 4.0 International（CC BY 4.0），完整法律文本见 [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0)。署名为 HughZadora，© 2026。
+
+这只适用于本仓库原创部分。Frappe、ERPNext、frappe_docker 及其他第三方代码、文档、素材和商标仍按各自的许可证、版权声明及商标规则处理；本仓库不主张拥有这些第三方内容或商标。引用或随仓库分发的第三方材料，其随附声明仍然有效。
+
+License scope for original repository material:
+
+- Original code and configuration authored for this repository are licensed under the MIT License; see [LICENSE-MIT](LICENSE-MIT). Copyright (c) 2026 HughZadora.
+- Original documentation authored for this repository is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0). Attribution: HughZadora, © 2026.
+
+This notice applies only to original repository material. Frappe, ERPNext, frappe_docker, and other third-party code, documentation, media, and marks remain subject to their own licenses, notices, and trademark rules. This repository does not claim ownership of third-party material or marks. Any notices accompanying third-party material distributed with this repository remain in effect.
